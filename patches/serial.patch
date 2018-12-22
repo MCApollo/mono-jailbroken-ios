@@ -1,0 +1,15 @@
+--- ./support/serial.c	2018-08-07 07:46:01.000000000 +0000
++++ ./support/serial.c	2018-12-13 20:40:21.649482830 +0000
+@@ -34,9 +34,10 @@
+ 
+ /* sys/time.h (for timeval) is required when using osx 10.3 (but not 10.4) */
+ /* IOKit is a private framework in iOS, so exclude there */
+-#if defined(__APPLE__) && !defined(HOST_IOS) && !defined(HOST_WATCHOS) && !defined(HOST_APPLETVOS)
++/* #if defined(__APPLE__) && !defined(HOST_IOS) && !defined(HOST_WATCHOS) && !defined(HOST_APPLETVOS)
++
+ #define HAVE_IOKIT 1
+-#endif
++#endif */
+ 
+ #if defined(HAVE_IOKIT)
+ #include <sys/time.h>

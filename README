@@ -1,0 +1,3 @@
+./configure --host=aarch64-apple-darwin17 --build=x86_64-unknown-linux-gnu --with-sysroot=/home/cade/toolchain/SDK/ --enable-shared --disable-static --sysconfdir=/etc --localstatedir=/var CFLAGS="-Wno-implicit-function-declaration -I$HOME/iPhone-include/ -DSYSTEM_ALLOW_IOS" mono_cv_uscore=yes
+
+The patches are outdated, gcconfig, configure are the lastest version of this effort

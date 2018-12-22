@@ -1,0 +1,47 @@
+--- ./configure	2018-08-07 07:51:23.000000000 +0000
++++ ./configure	2018-12-13 19:31:01.530772020 +0000
+@@ -4380,12 +4380,8 @@
+ 		libdl=
+ 		libgc_threads=pthreads
+ 		has_dtrace=yes
+-		if test "x$cross_compiling" = "xyes"; then
+-			has_broken_apple_cpp=yes
+-		fi
+-								case "$host" in
+-						i*86-*-darwin*)
+-				BROKEN_DARWIN_FLAGS="-arch i386 -D_XOPEN_SOURCE"
++#			has_broken_apple_cpp=yes
++				BROKEN_DARWIN_FLAGS="-D_XOPEN_SOURCE"
+ 				BROKEN_DARWIN_CPPFLAGS="-D_XOPEN_SOURCE"
+ 				CPPFLAGS="$CPPFLAGS $BROKEN_DARWIN_CPPFLAGS"
+ 				CFLAGS="$CFLAGS $BROKEN_DARWIN_FLAGS"
+@@ -4394,18 +4390,17 @@
+ 				CPPFLAGS_FOR_LIBGC="$CPPFLAGS_FOR_LIBGC $BROKEN_DARWIN_CPPFLAGS"
+ 				CFLAGS_FOR_LIBGC="$CFLAGS_FOR_LIBGC $BROKEN_DARWIN_FLAGS"
+ 				with_sgen_default_concurrent=yes
+-				;;
+-			x*64-*-darwin*)
+-				with_sgen_default_concurrent=yes
+-				;;
+-			arm*-darwin*)
+-				platform_ios=yes
+-				has_dtrace=no
+-				;;
+-			aarch64*-darwin*)
+-				platform_ios=yes
+-				;;
+-		esac
++#			x*64-*-darwin*)
++#				with_sgen_default_concurrent=yes
++#				;;
++#			arm*-darwin*)
++#				platform_ios=yes
++#				has_dtrace=no
++#				;;
++#			aarch64*-darwin*)
++#				platform_ios=yes
++#				;;
++#		esac
+ 		;;
+ 	*-*-haiku*)
+ 		CPPFLAGS="$CPPFLAGS -D_REENTRANT -D_THREAD_SAFE"

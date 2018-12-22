@@ -1,0 +1,49 @@
+--- ./libgc/include/private/gcconfig.h	2018-08-07 07:45:58.000000000 +0000
++++ ./libgc/include/private/gcconfig.h	2018-12-13 20:47:35.277777705 +0000
+@@ -60,9 +60,7 @@
+ # endif
+ 
+ /* And one for Darwin: */
+-# if defined(macosx) || (defined(__APPLE__) && defined(__MACH__))
+ #   define DARWIN
+-# endif
+ 
+ /* Determine the machine type: */
+ # if defined(__native_client__)
+@@ -327,13 +325,9 @@
+ #   define MACOS
+ #   define mach_type_known
+ # endif
+-# ifdef DARWIN
++# if 1 // Darwin
+ #    include "TargetConditionals.h"
+-#   if defined(__ppc__)  || defined(__ppc64__)
+-#    define POWERPC
+-#    define mach_type_known
+-#   elif defined(__i386__)
+-#    define I386
++#    define ARM
+ #    define mach_type_known
+ #    define DARWIN_DONT_PARSE_STACK
+ #    define OS_TYPE "DARWIN"
+@@ -355,18 +349,12 @@
+ #    ifdef GC_DARWIN_THREADS
+ /* #       define MPROTECT_VDB -- diabled for now.  May work for some apps. */
+ #    endif
++	// iOS
+ #    include <unistd.h>
+ #    define GETPAGESIZE() getpagesize()
+-#   elif defined(__arm__)
+-#    define ARM
+-#    define mach_type_known
+ #    define DARWIN_DONT_PARSE_STACK
+ #    define GC_DONT_REGISTER_MAIN_STATIC_DATA
+-#   elif defined(__x86_64)
+-#    define X86_64
+-#    define mach_type_known
+-#   endif
+-# endif
++# endif // Darwin
+ # if defined(NeXT) && defined(mc68000)
+ #   define M68K
+ #   define NEXT

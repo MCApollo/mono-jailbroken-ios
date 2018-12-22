@@ -1,0 +1,5 @@
+mono_cv_uscore=yes
+
+BUILD_PLATFORM=darwin
+
+CFLAGS="-Wno-implicit-function-declaration"

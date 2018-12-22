@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /usr/local/bin/mono --gc-params=nursery-size=64m $MONO_OPTIONS /usr/local/lib/mono/4.5/vbc.exe "$@"
