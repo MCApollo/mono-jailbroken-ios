@@ -5,3 +5,7 @@ The patches are outdated, gcconfig, configure are the lastest version of this ef
 JIT is non-working; AOT seems like the only options
 
 JIT could be working due to bad mcs binaries or JIT can be just plain broken for iOS/arm64.
+
+**WHY DOES IT NOT WORK?**
+msc needs to be compiled for the target, but the docs say to disable this feature.
+The debian/bsd ports for aarch64 (or any cross triple) might hold the answer.
